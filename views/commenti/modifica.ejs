@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<h2>Modifica commento</h2>
+
+<form action="/videos/<%= video._id %>/commenti/<%= commento._id %>?_method=PUT" method="POST">
+  <div class="form-group">
+    <input class="form-control" type="text" name="commento[testo]" value="<%= commento.testo %>" placeholder="Commento">
+  </div>
+  
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary btn-default btn-block">Modifica</button>
+  </div>
+</form>
+
+<a href="/videos/<%= video_id %>">Torna al video</a>
+
+<% include ../partials/footer %>

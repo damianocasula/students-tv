@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+
+<div class="row">
+  <div class="col-md-9 col-sm-12" id="video-section">
+    <div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;">
+      <iframe src="<%= video.video %>" frameborder="0" width="100%" height="100%" allowfullscreen style="width: 100%; height: 100%; position: absolute;"></iframe>
+    </div>
+
+    <div class="informazioni-video">
+      <h4><a><%= video.titolo %></a></h4>
+      <p><%= video.descrizione %></p>
+    </div>
+
+    <div class="container-commenti">
+      <div class="text-right">
+        <% if (utenteAttuale && utenteAttuale.admin && video.autore.id.equals(utenteAttuale._id)) { %>
+          <a class="btn btn btn-warning btn-sm" href="/videos/<%= video._id %>/modifica">Modifica</a>
+
+          <form class="form-eliminazione" action="/videos/<%= video._id %>?_method=DELETE" method="POST">
+            <input type="submit" class="btn btn-danger btn-sm" value="Elimina">
+          </form>
+        <% } %>
+        
+        <a class="btn btn-outline-primary btn-sm" href="/videos/<%= video._id %>/commenti/nuovo">Aggiungi un commento</a>
+      </div>
+
+      <hr>
+
+      <% video.commenti.forEach(commento => { %>
+        <div class="row">
+          <div class="col-md-12">
+            <strong><%= commento.autore.username %></strong>
+            <span class="pull-right"><%= moment(commento.creato, 'MMMM Do YYYY, h:mm:ss a').fromNow() %></span>
+            <p>
+              <%= commento.testo %>
+            </p>
+
+            <% if (utenteAttuale && commento.autore.id.equals(utenteAttuale._id)) { %>
+              <a class="btn btn btn-link btn-sm" href="/videos/<%= video._id %>/commenti/<%= commento._id %>/modifica">Modifica</a>
+
+              <form class="form-eliminazione" action="/videos/<%= video._id %>/commenti/<%= commento._id %>?_method=DELETE" method="POST">
+                <input type="submit" class="btn btn-outline-danger btn-sm" value="Elimina">
+              </form>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-12">
+    <h4>Video consigliati</h4>
+
+    <% videos.reverse().forEach(video => { %>
+      <div class="anteprima-video">
+        <a href="/videos/<%= video._id %>">
+          <img src="<%= video.anteprima %>">
+        </a>
+
+        <div class="informazioni-video">
+          <a href="/videos/<%= video._id %>">
+            <h5><%= video.titolo %></h5>
+          </a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include ../partials/footer %>

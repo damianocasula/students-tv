@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<header class="jumbotron">
+  <div class="container-fluid">
+    <h1>Benvenuto su Student's TV</h1>
+    <% if (utenteAttuale && utenteAttuale.admin) { %>
+      <p><a class="btn btn-primary" href="/videos/nuovo">Aggiungi un video</a></p>
+    <% } %>
+  </div>
+</header>
+  
+<div class="row">
+  <div class="col-lg-12">
+    <h3>I video più popolari</h3>
+  </div>
+</div>
+
+<hr>
+  
+<div class="row lista-video">
+  <% videos.forEach(video => { %>
+    <div class="col-md-4 col-sm-6">
+      <div class="anteprima-video">
+        <a href="/videos/<%= video._id %>">
+          <img src="<%= video.anteprima %>">
+        </a>
+
+        <div class="informazioni-video">
+          <a href="/videos/<%= video._id %>">
+            <h5><%= video.titolo %></h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+<% include ../partials/footer %>

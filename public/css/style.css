@@ -1,0 +1,83 @@
+/***
+  Import esterni
+*/
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700');
+
+/***
+  Stili di base
+*/
+body {
+  margin-top: 80px;
+  font-family: Raleway, Montserrat, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+/***
+  Nav link
+*/
+
+.nav-link {
+  padding: .5rem 0;
+}
+
+nav a {
+  color: rgba(255, 255, 255, .5);
+}
+
+nav a:hover {
+  color: rgba(255, 255, 255, .75);
+}
+
+.active a {
+  color: rgba(255, 255, 255);
+}
+
+/***
+  Anteprima video
+*/
+.lista-video {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.anteprima-video {
+  border: 1px solid #ddd;
+  border-radius: .35rem;
+  margin-bottom: 30px;
+}
+
+.anteprima-video img {
+  width: 100%;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+}
+
+.informazioni-video {
+  padding: 10px 12px;
+}
+
+.informazioni-video a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.informazioni-video h5 {
+  margin: 0;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.form-eliminazione {
+  display: inline;
+}
+
+/***
+  Pagina mostra video
+*/
+@media screen and (max-width: 768px) {
+  #video-section {
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
+}
