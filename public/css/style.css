@@ -12,7 +12,11 @@ body {
   font-weight: 300;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2 {
+  font-weight: 500;
+}
+
+h3, h4, h5 {
   font-weight: 300;
 }
 
@@ -67,7 +71,6 @@ nav a:hover {
 
 .informazioni-video h5 {
   margin: 0;
-  font-weight: 400;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
