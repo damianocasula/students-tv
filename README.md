@@ -1,6 +1,6 @@
 # Student's TV 
 
-A project built as part of the 'Alternanza Scuola-Lavoro' project. 
+A project built as part of the 'Alternanza Scuola-Lavoro' project (from 2016 to 2019). 
 
 ## Technologies
 
