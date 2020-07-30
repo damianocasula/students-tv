@@ -11,11 +11,7 @@ const User = require('./models/utente')
 
 // Database configuration
 const db = require('./db')
-mongoose.connect(`mongodb://${db.host}:${db.port}/${db.name}`, {
-  auth: {
-    user: db.user,
-    password: db.password
-  },
+mongoose.connect(`mongodb+srv://${db.user}:${db.password}@${db.host}/${db.name}?retryWrites=true&w=majority`, {
   useNewUrlParser: true
 })
 
