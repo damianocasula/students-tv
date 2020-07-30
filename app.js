@@ -61,5 +61,5 @@ app.use('/videos/:id/commenti', require('./routes/commenti'))
 const port = process.env.PORT || 3000
 
 app.listen(port, process.env.IP, () => {
-  console.log(`Il server è online sulla porta ${port}`)
+  console.log(`Il server è online su http://localhost:${port}`)
 })
